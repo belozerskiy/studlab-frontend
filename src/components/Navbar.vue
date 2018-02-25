@@ -16,7 +16,7 @@
           aria-haspopup="true" 
           aria-expanded="true"
         >
-          Белозерский М.А. 
+          {{ fullName }} 
           <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
@@ -40,6 +40,7 @@ export default {
   name: 'Navbar',
   data(){
     return {
+      fullName: 'Белозерский М.А',
       open: false,
       nav: [
         { name: 'Ученики', path: '/students' },

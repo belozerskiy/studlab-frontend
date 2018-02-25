@@ -1,14 +1,5 @@
 <template>
-  <stepper
-    :steps="steps"
-  > 
-    <step :number="1" active>
-      <h1>Test</h1>
-    </step>
-    <step :number="2">
-      <h1>Test 2</h1>
-    </step>
-  </stepper>
+  <stepper :steps="steps"></stepper>
 </template>
 
 <script>
@@ -31,5 +22,4 @@ export default {
 </script>
 
 <style>
-
 </style>
