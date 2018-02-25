@@ -1,4 +1,4 @@
-# mytest
+# Studlab-frontend
 
 > A Vue.js project
 
