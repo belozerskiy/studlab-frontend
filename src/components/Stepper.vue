@@ -64,7 +64,6 @@ export default {
   },
   methods: {
     next(){
-      
       if(this.currentStep < this.lengthOfSteps){
         this.currentStep += 1;
         this.currentComponent = this.steps[this.currentStep].component;
