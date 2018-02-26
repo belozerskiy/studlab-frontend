@@ -23,14 +23,23 @@
         <span class="glyphicon glyphicon-arrow-left"></span>
         Назад
       </button>
-      <button 
+      <button
+        v-if="isNextBtnActive" 
         type="button" 
         :class="['btn','btn-primary','btn-next', { 'disabled': !isNextBtnActive }]" 
-        data-last="Complete"
         @click="next"
       >
         Вперед
         <span class="glyphicon glyphicon-arrow-right"></span>
+      </button>
+      <button
+        v-else 
+        type="button" 
+        :class="['btn','btn-success','btn-next']" 
+        data-last="Complete"
+        @click="done"
+      >
+        Готово
       </button>
     </div>
     <div class="step-content">
@@ -90,6 +99,9 @@ export default {
       if(this.currentStep === 0) {
         this.isPrevBtnActive = false;
       }
+    },
+    done(){
+      this.$emit('stepper-done');
     }
   },
 }

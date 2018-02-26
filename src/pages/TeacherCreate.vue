@@ -1,5 +1,9 @@
 <template>
-  <stepper :steps="steps"></stepper>
+  <stepper 
+    :steps="steps"
+    @stepper-done="done"
+  >
+  </stepper>
 </template>
 
 <script>
@@ -9,15 +13,19 @@ import Stepper from '@/components/Stepper';
 
 export default {
   name: 'TeacherCreate',
+  components: { Stepper },
   data(){
     return {
       steps: [
-        { number: 1, name: 'First Step', component: StepOne },
-        { number: 2, name: 'Second Step', component: StepTwo },
+        { name: 'Регистрация', component: StepOne },
+        { name: 'Основные данные', component: StepTwo },
+        { name: 'Верификация', component: StepTwo },
       ]
     }
   },
-  components: { Stepper },
+  methods: {
+    done() { console.log('Stepper has done all work...') }
+  }
 }
 </script>
 
