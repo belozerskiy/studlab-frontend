@@ -95,8 +95,8 @@ export default {
 }
 </script>
 
-<style>
-  .fuelux .wizard>.actions {
+<style scoped>
+  .wizard > .actions {
     z-index: 999;
   }
 </style>
