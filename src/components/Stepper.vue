@@ -3,13 +3,13 @@
     <div class="steps-container">
       <ul class="steps">
         <li 
-          v-for="{ name, number } in steps" 
-          :key="number"
-          :data-step="number"
+          v-for="({ name }, index) in steps" 
+          :key="index"
+          :data-step="index"
           :data-name="name"
-          :class="{ active: currentStep == number }"
+          :class="{ active: currentStep == index }"
         >
-          <span class="badge">{{ number }}</span>{{ name }}
+          <span class="badge">{{ index + 1 }}</span>{{ name }}
           <span class="chevron"></span>
         </li>
       </ul>
@@ -17,15 +17,17 @@
     <div class="actions">
       <button 
         type="button" 
-        class="btn btn-default btn-prev"
+        :class="['btn', 'btn-default', 'btn-prev', { 'disabled': !isPrevBtnActive }]"
+        @click="prev"
       >
         <span class="glyphicon glyphicon-arrow-left"></span>
         Назад
       </button>
       <button 
         type="button" 
-        class="btn btn-primary btn-next" 
+        :class="['btn','btn-primary','btn-next', { 'disabled': !isNextBtnActive }]" 
         data-last="Complete"
+        @click="next"
       >
         Вперед
         <span class="glyphicon glyphicon-arrow-right"></span>
@@ -51,13 +53,45 @@ export default {
       isPrevBtnActive: false,
     }
   },
+  computed: {
+    lengthOfSteps(){
+      return this.steps.length - 1;
+    }
+  },
   mounted(){
-    this.currentStep = this.steps[0].number;
-    this.currentComponent = this.steps[0].component; 
+    this.currentStep = 0;
+    this.currentComponent = this.steps[this.currentStep].component; 
   },
   methods: {
-    next(){},
-    prev(){}
+    next(){
+      
+      if(this.currentStep < this.lengthOfSteps){
+        this.currentStep += 1;
+        this.currentComponent = this.steps[this.currentStep].component;
+      } 
+
+      if(this.currentStep > 0 && this.isPrevBtnActive === false){
+        this.isPrevBtnActive = true;
+      }
+
+      if(this.currentStep === this.lengthOfSteps) {
+        this.isNextBtnActive = false;
+      }
+    },
+    prev(){
+      if(this.currentStep === this.lengthOfSteps && this.isNextBtnActive === false){ 
+        this.isNextBtnActive = true; 
+      }
+
+      if(this.currentStep > 0){
+        this.currentStep -= 1;
+        this.currentComponent = this.steps[this.currentStep].component;
+      }
+      
+      if(this.currentStep === 0) {
+        this.isPrevBtnActive = false;
+      }
+    }
   },
 }
 </script>
