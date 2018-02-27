@@ -7,20 +7,14 @@
 </template>
 
 <script>
-import StepOne from '@/components/StepOne';
-import StepTwo from '@/components/StepTwo';
-import Stepper from '@/components/Stepper';
+import Stepper from '@/components/Reusable/Stepper';
 
 export default {
   name: 'TeacherCreate',
   components: { Stepper },
   data(){
     return {
-      steps: [
-        { name: 'Регистрация', component: StepOne },
-        { name: 'Основные данные', component: StepTwo },
-        { name: 'Верификация', component: StepTwo },
-      ]
+      steps: []
     }
   },
   methods: {
