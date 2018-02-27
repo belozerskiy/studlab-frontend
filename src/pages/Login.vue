@@ -1,11 +1,11 @@
 <template>
   <login-layout>
-      <login-form />
+    <login-form />
   </login-layout>
 </template>
 
 <script>
-import LoginForm from '@/components/LoginForm';
+import LoginForm from '@/components/Forms/LoginForm';
 import LoginLayout from '@/layout/LoginLayout';
 
 export default {

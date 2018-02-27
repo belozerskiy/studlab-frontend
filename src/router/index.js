@@ -5,6 +5,7 @@ import Main from "@/pages/Main";
 import Students from "@/pages/Students";
 import Teachers from "@/pages/Teachers";
 import TeacherCreate from "@/pages/TeacherCreate";
+import StudentCreate from "@/pages/StudentCreate";
 
 Vue.use(Router);
 
@@ -18,6 +19,11 @@ export default new Router({
       component: Main,
       children: [
         { path: "/students", name: "Dashboard", component: Students },
+        {
+          path: "/student/create",
+          name: "StudentCreate",
+          component: StudentCreate
+        },
         { path: "/teachers", name: "Teachers", component: Teachers },
         {
           path: "teacher/create",
