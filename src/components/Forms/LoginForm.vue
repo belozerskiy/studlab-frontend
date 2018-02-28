@@ -1,7 +1,7 @@
 <template>
   <div class="login panel panel-default">
     <div class="panel-heading">
-      <strong>Вход в панель управления.</strong>
+      <h4>Вход в панель управления.</h4>
     </div>
     <div class="panel-body">
       <form>
