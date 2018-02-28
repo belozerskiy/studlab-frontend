@@ -45,9 +45,7 @@
       <li 
         v-for="{ id, title } in options.list" 
         :key="id"
-        :class="{ 'selected': id === selected }"
-        :data-value="id"
-        :data-selected="id === selected"
+        :class="{ 'selected': isSelected(id) }"
         @click="selectItem(id, title)"
       >
         <a>{{ title }}</a>
@@ -92,7 +90,7 @@ export default {
     },
     isLabel(){
       return this.options.label !== undefined && this.options.label.length > 0;
-    }
+    },
   },
   methods: {
     onResize({ clientWidth }){
@@ -105,6 +103,9 @@ export default {
       this.$refs[this.comboBoxName].value = title;
       this.selected = id;
       this.onClick();
+    },
+    isSelected(id){
+      return id === this.selected;
     }
   },
 }
