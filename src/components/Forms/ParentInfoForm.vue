@@ -8,7 +8,7 @@
         v-mask="phoneMask" 
         type="text" 
         class="form-control" 
-        id="phone" 
+        id="parent-phone" 
         placeholder="+7(999)111-11-11"
       >
     </div>
@@ -19,7 +19,7 @@
         v-model="fullname"
         type="text" 
         class="form-control" 
-        id="fio" 
+        id="parent-fullname" 
         placeholder="Сусанин Иван Васильевич"
       >
     </div>

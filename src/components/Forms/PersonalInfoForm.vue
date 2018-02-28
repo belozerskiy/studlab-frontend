@@ -1,5 +1,6 @@
 <template>
   <form>
+    
     <div class="form-group required">
       <label class="control-label" for="phone">Телефон:</label>
       <input 
@@ -47,12 +48,12 @@
     </div>
     
     <div class="form-group required">
-      <label class="control-label" for="fullname">Цель:</label>
+      <label class="control-label" for="target">Цель:</label>
       <input 
         type="text" 
         class="form-control" 
-        id="fullname"
-        v-model="fullname" 
+        id="target"
+        v-model="target" 
         placeholder="Сусанин Игорь Иванович"
       >
     </div>
@@ -68,22 +69,31 @@
       >
     </div>
     
+    <combo-box :options="options"></combo-box>
+
     <pre>{{ $v }}</pre>
   </form>
 </template>
 <script>
 import { required } from 'vuelidate/lib/validators';
 import { isFullname } from '@/validators';
+import ComboBox from '@/components/Reusable/ComboBox';
 
 export default {
   name: "PersonalInfoForm",
+  components: { ComboBox },
   data(){
     return {
-      form: [
-        {},
-        {},
-        {}
-      ],
+      options: { 
+        label: 'Образование', 
+        name: 'education',
+        list: [
+          { id: 'middle', title: 'Среднее'}, 
+          { id: 'middle-profile', title: 'Среднее профильное' },
+          { id: 'incomplete-higher', title: 'Неоконченное высшее' }, 
+          { id: 'complete-higher', title: 'Оконченное высшее' }
+        ]
+      },
       phone: "",
       phoneMask: "+7(###)###-##-##",
       fullname: "",
@@ -101,7 +111,7 @@ export default {
         isFullname
       }
     }
-  }
+  },
 };
 </script>
 
