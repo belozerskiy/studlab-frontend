@@ -35,7 +35,7 @@
 
 <script>
 import { required } from 'vuelidate/lib/validators'
-import { isFullName } from '@/validators';
+import { isFullname } from '@/validators';
 
 export default {
   name: 'ParentInfoForm',
