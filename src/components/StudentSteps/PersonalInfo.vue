@@ -29,7 +29,6 @@
 import Panel from '@/components/Reusable/Panel';
 import PanelBody from '@/components/Reusable/PanelBody';
 import PanelHeading from '@/components/Reusable/PanelHeading';
-
 import PersonalInfoForm from '@/components/Forms/PersonalInfoForm';
 import ParentInfoForm from '@/components/Forms/ParentInfoForm';
 
