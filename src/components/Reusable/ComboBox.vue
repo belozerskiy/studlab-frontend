@@ -21,7 +21,6 @@
     class="form-control" 
     :id="options.name" 
     :ref="comboBoxName"
-    @onresize="onResize"
   >
   <div 
     :class="[
